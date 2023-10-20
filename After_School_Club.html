@@ -1,0 +1,55 @@
+<html> <!-- Start of HTML document -->
+    <head> <!-- Head section of the HTML document -->
+        <title>Vue.js After School Club</title> <!-- Title of the HTML document -->
+        <script src="https://unpkg.com/vue@2.7.8/dist/vue.js"></script> <!-- Import Vue.js library -->
+        <style> <!-- Start of CSS styles -->
+            /* Add CSS for flex layout */
+            .lesson { 
+                display: flex; /* Use flexbox layout */
+                align-items: center; /* Center items vertically in the container */
+            }
+            .lesson img {
+                margin-right: 20px; /* Add right margin to the image */
+            }
+        </style> <!-- End of CSS styles -->
+    </head>
+    <body> <!-- Body section of the HTML document -->
+        <div id="app"> <!-- Vue.js will control this div element -->
+            <header> <!-- Header section of the app -->
+                <h1 v-text="sitename"></h1> <!-- Display the site name using Vue.js text binding -->
+            </header>
+            <main> <!-- Main section of the app -->
+                <!-- Wrap image and text in a div with class 'lesson' -->
+                <div class="lesson">
+                    <figure> <!-- Figure element for displaying image -->
+                        <img v-bind:src="lesson.image"> <!-- Display the lesson image using Vue.js attribute binding -->
+                    </figure>
+                    <!-- Wrap text in a div -->
+                    <div class="text">
+                        <h2 v-text="lesson.subject"></h2> <!-- Display the lesson subject using Vue.js text binding -->
+                        <p v-text="lesson.location"></p> <!-- Display the lesson location using Vue.js text binding -->
+                        <p>Price: {{lesson.price}}</p> <!-- Display the lesson price using Vue.js interpolation -->
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <!-- The element where Vue will mount -->
+        <div id="app"></div>
+
+        <script type="text/javascript"> <!-- Start of JavaScript section -->
+            let afterSchoolClub = new Vue({ // The Vue instance
+                el: '#app', // The 'option object': DOM mounting point
+                data: { // Data object for storing reactive data
+                    sitename:'Vue.js After School Club', // Site name data property
+                    lesson: { // Lesson object data property
+                        subject: "Math", // Subject data property
+                        location: "London", // Location data property
+                        price: "£100", // Price data property
+                        image: "calculator-icon.jpeg" // Image data property
+                    }
+                }
+            });
+        </script> <!-- End of JavaScript section -->
+    </body> <!-- End of body section -->
+</html> <!-- End of HTML document -->
